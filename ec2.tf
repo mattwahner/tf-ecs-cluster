@@ -51,6 +51,7 @@ resource "aws_autoscaling_group" "ecs_cluster_asg" {
         {
             key = "Name"
             value = "${var.name}_instance"
+            propogate_at_launch = true
         }
     ]
 }
