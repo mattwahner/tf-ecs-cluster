@@ -34,10 +34,6 @@ resource "aws_launch_configuration" "ecs_cluster_launch_configuration" {
     lifecycle {
         create_before_destroy = true
     }
-
-    tags = {
-        Name = "${var.name}_ecs_cluster_launch_configuration"
-    }
 }
 
 resource "aws_autoscaling_group" "ecs_cluster_asg" {
