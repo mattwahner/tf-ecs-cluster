@@ -16,7 +16,7 @@ data "aws_ami" "ecs_cluster_ami" {
 }
 
 data "template_file" "user_data" {
-    template = file("user_data.sh")
+    template = file("${path.module}/user_data.sh")
     vars = {
         ecs_cluster = aws_ecs_cluster.ecs_cluster.name
     }
