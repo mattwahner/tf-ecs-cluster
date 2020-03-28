@@ -47,8 +47,10 @@ resource "aws_autoscaling_group" "ecs_cluster_asg" {
         create_before_destroy = true
     }
 
-    tag = {
-        key = "Name"
-        value = "${var.name}_ec2_instance"
-    }
+    tags = [
+        {
+            key = "Name"
+            value = "${var.name}_instance"
+        }
+    ]
 }
