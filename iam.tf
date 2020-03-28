@@ -27,6 +27,6 @@ resource "aws_iam_role_policy_attachment" "ecs_cluster_policy" {
 }
 
 resource "aws_iam_instance_profile" "ecs_cluster_iam_profile" {
-    name = "example_instance_profile"
+    name = "${var.name}_ecs_cluster_iam_profile"
     role = aws_iam_role.ecs_cluster_iam_role.name
 }
