@@ -39,8 +39,9 @@ resource "aws_launch_configuration" "ecs_cluster_launch_configuration" {
 resource "aws_autoscaling_group" "ecs_cluster_asg" {
     name = "${var.name}_ecs_cluster_asg"
     launch_configuration = aws_launch_configuration.ecs_cluster_launch_configuration.name
-    min_size = 1
-    max_size = 1
+    min_size = var.min_size
+    max_size = var.max_size
+    desired_capacity = var.desired_capacity
     vpc_zone_identifier = data.aws_subnet_ids.default_vpc_subnets.ids
 
     lifecycle {
