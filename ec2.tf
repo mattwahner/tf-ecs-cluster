@@ -37,7 +37,7 @@ resource "aws_launch_configuration" "ecs_cluster_launch_configuration" {
 }
 
 resource "aws_autoscaling_group" "ecs_cluster_asg" {
-    name = "example_ecs_asg"
+    name = "${var.name}_ecs_cluster_asg"
     launch_configuration = aws_launch_configuration.ecs_cluster_launch_configuration.name
     min_size = 1
     max_size = 1
@@ -45,9 +45,5 @@ resource "aws_autoscaling_group" "ecs_cluster_asg" {
 
     lifecycle {
         create_before_destroy = true
-    }
-
-    tags = {
-        Name = "${var.name}_ecs_cluster_asg"
     }
 }
