@@ -25,7 +25,7 @@ data "template_file" "user_data" {
 resource "aws_launch_configuration" "ecs_cluster_launch_configuration" {
     name_prefix = "${var.name}-lc-"
     image_id = data.aws_ami.ecs_cluster_ami.id
-    instance_type = "t2.micro"
+    instance_type = var.instance_type
     user_data = data.template_file.user_data.rendered
     iam_instance_profile = aws_iam_instance_profile.ecs_cluster_iam_profile.name
     associate_public_ip_address = true

@@ -10,3 +10,6 @@ variable "max_size" {
 variable "desired_capacity" {
     default = 1
 }
+variable "instance_type" {
+    default = "t2.micro"
+}
